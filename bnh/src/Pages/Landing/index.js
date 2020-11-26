@@ -16,7 +16,11 @@ function Landing() {
         </Row>
         <Row>
           <Col xs={10}>
-            <h3>Enter the values below</h3>
+            <h3>Registration Numbers</h3>
+            <h6>
+              Create your registration number by entering the values below
+            </h6>
+            <br></br>
           </Col>
         </Row>
         <GraphicForm />

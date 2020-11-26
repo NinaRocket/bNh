@@ -7,13 +7,22 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Image from "react-bootstrap/Image";
 import ImageUpload from "../ImageUpload";
+import RegTextForm from "../RegTextForm";
 
 function GraphicForm() {
   return (
     <>
-      <Form.Group className="regText" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Registration Text</Form.Label>
-        <Form.Control as="textarea" rows={1} />
+      <RegTextForm />
+
+      <Form.Group className="color" controlId="exampleForm.ControlSelect1">
+        <Form.Label>Font</Form.Label>
+        <Form.Control as="select">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </Form.Control>
       </Form.Group>
 
       <Form.Group className="color" controlId="exampleForm.ControlSelect1">
@@ -40,6 +49,7 @@ function GraphicForm() {
           <option>5</option>
         </Form.Control>
       </Form.Group>
+
       <ImageUpload />
     </>
   );
