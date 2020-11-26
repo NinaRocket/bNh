@@ -10,7 +10,7 @@ function Landing() {
     <div>
       <Container>
         <Row>
-          <Col xs={10}>
+          <Col xs={12}>
             <h1>Welcome to Boats 'n Hoes</h1>
           </Col>
         </Row>
