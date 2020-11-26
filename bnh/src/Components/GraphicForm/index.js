@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
+// import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Image from "react-bootstrap/Image";
+// import FormControl from "react-bootstrap/FormControl";
+// import Image from "react-bootstrap/Image";
 import ImageUpload from "../ImageUpload";
-import RegTextForm from "../RegTextForm";
 
 function GraphicForm() {
+  const [regText, setRegText] = useState("");
+
+  const handleChange = (event) => {
+    setRegText(event.target.value);
+  };
   return (
     <>
-      <RegTextForm />
+      <React.Fragment>
+        <Container>
+          <div className="boat-text">{regText}</div>
+
+          <br></br>
+        </Container>
+
+        <Form.Group
+          className="regText"
+          controlId="exampleForm.ControlTextarea1"
+        >
+          <Form.Label htmlFor="regText">Registration Text</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={1}
+            value={regText}
+            onChange={handleChange}
+            placeholder="NR 1234 NJ"
+          />
+        </Form.Group>
+      </React.Fragment>
 
       <Form.Group className="color" controlId="exampleForm.ControlSelect1">
         <Form.Label>Font</Form.Label>
