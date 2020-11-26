@@ -1,8 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Navbar from "./Components/Navbar";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Navbar />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;
