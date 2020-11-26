@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Wrapper from "./Components/Wrapper";
 import Landing from "./Pages/Landing";
+import ColorPlay from "./Components/ColorPlay";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Wrapper>
           <Navbar />
           <Route exact path="/" component={Landing} />
+          <Route exact path="/color" component={ColorPlay} />
         </Wrapper>
       </Switch>
     </BrowserRouter>

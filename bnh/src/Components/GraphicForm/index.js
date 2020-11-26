@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import ReactDOM from "react-dom";
 import "./style.css";
 import Container from "react-bootstrap/Container";
 // import Col from "react-bootstrap/Col";
@@ -14,6 +15,11 @@ function GraphicForm() {
   const handleChange = (event) => {
     setRegText(event.target.value);
   };
+
+  const changeColor = (event) => {
+    setRegText(event.target.value);
+  };
+
   return (
     <>
       <React.Fragment>
@@ -27,7 +33,7 @@ function GraphicForm() {
           className="regText"
           controlId="exampleForm.ControlTextarea1"
         >
-          <Form.Label htmlFor="regText">Registration Text</Form.Label>
+          <Form.Label>Registration Text</Form.Label>
           <Form.Control
             as="textarea"
             rows={1}
@@ -64,12 +70,11 @@ function GraphicForm() {
 
       <Form.Group className="color" controlId="exampleForm.ControlSelect1">
         <Form.Label>Color</Form.Label>
-        <Form.Control as="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <Form.Control as="select" value={regText} onChange={changeColor}>
+          <option></option>
+          <option style={{ color: "red" }}>Red</option>
+          <option>Blue</option>
+          <option>Green</option>
         </Form.Control>
       </Form.Group>
 
