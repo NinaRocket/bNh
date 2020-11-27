@@ -4,12 +4,14 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import ImageUpload from "../ImageUpload";
 import Select from "react-select";
-import colors from "../../utils/colors.json";
+import colors from "../../data/colors.json";
+import FontPicker from "../../Components/FontPicker";
 
 function GraphicForm() {
   const [regText, setRegText] = useState();
   const [regTextColor, setRegTextColor] = useState();
-  const [color, setColor] = useState();
+  const [bgColor, setBgColor] = useState();
+  const [label, setLabel] = useState();
 
   const handleChange = (event) => {
     setRegText(event.target.value);
@@ -32,16 +34,28 @@ function GraphicForm() {
 
   const changeColor = (e) => {
     console.log(`On change working and is grabbing: ${e.color}`);
-
-    setColor(colors);
+    setLabel(e.label);
+    //setColor(colors);
     setRegTextColor(e.color);
+  };
+
+  const changeBackground = (e) => {
+    setLabel(e.label);
+    console.log(e.label);
+    console.log(label);
+    console.log(colors);
+    //setColor(colors);
+    setBgColor(e.color);
   };
 
   return (
     <>
       <React.Fragment>
         <Container>
-          <div className="boatText" style={{ color: regTextColor }}>
+          <div
+            className="apply-font boatText"
+            style={{ color: regTextColor, backgroundColor: bgColor }}
+          >
             {regText}
           </div>
 
@@ -63,43 +77,58 @@ function GraphicForm() {
         </Form.Group>
       </React.Fragment>
 
-      <Form.Label>Color</Form.Label>
-      <Select
-        className="colorPick"
-        myFontSize="20px"
-        value={regTextColor}
-        styles={styles}
-        options={colors}
-        onChange={changeColor}
-      />
+      <Container className="inputContainer">
+        <Form.Label>Choose Font</Form.Label>
+        <FontPicker />
+        <br></br>
 
-      <Form.Group
-        className="background-color"
-        controlId="exampleForm.ControlSelect1"
-      >
+        <Form.Label>Color</Form.Label>
+        <Select
+          className="colorPick"
+          myFontSize="20px"
+          value={regTextColor}
+          styles={styles}
+          options={colors}
+          onChange={changeColor}
+        />
+        <br></br>
+        {/* <Form.Group
+          className="background-color"
+          controlId="exampleForm.ControlSelect1"
+        >
+          <Form.Label>Background Color</Form.Label>
+          <Form.Control as="select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </Form.Control>
+        </Form.Group> */}
         <Form.Label>Background Color</Form.Label>
-        <Form.Control as="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </Form.Control>
-      </Form.Group>
+        <Select
+          className="bgColorPick"
+          myFontSize="20px"
+          value={bgColor}
+          styles={styles}
+          options={colors}
+          onChange={changeBackground}
+        />
 
-      <Form.Group
-        className="outline-color"
-        controlId="exampleForm.ControlSelect1"
-      >
-        <Form.Label>Outline Shadow</Form.Label>
-        <Form.Control as="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </Form.Control>
-      </Form.Group>
+        <Form.Group
+          className="outline-color"
+          controlId="exampleForm.ControlSelect1"
+        >
+          <Form.Label>Outline Shadow</Form.Label>
+          <Form.Control as="select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </Form.Control>
+        </Form.Group>
+      </Container>
       <ImageUpload />
     </>
   );
@@ -115,18 +144,6 @@ export default GraphicForm;
           <option>3</option>
           <option>4</option>
           <option>5</option>
-        </Form.Control>
-      </Form.Group> */
-}
-
-{
-  /* <Form.Group className="color" controlId="exampleForm.ControlSelect1">
-        <Form.Label>Color</Form.Label>
-        <Form.Control as="select" value={regText} onChange={changeColor}>
-          <option></option>
-          <option style={{ color: "red" }}>Red</option>
-          <option>Blue</option>
-          <option>Green</option>
         </Form.Control>
       </Form.Group> */
 }

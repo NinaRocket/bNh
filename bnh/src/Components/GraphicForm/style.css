@@ -2,4 +2,14 @@
     font-size: 5.25rem; 
     text-align: center; 
     text-justify: auto; 
+   
+}
+
+.regText {
+    width: 30%
+}
+
+.inputContainer {
+    width: 250px;
+    float: left;
 }

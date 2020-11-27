@@ -1,0 +1,19 @@
+.dropdown-button {
+    background: white;
+}
+.font-list {
+    background-color: white; 
+}
+.font-button {
+    background-color: white;
+}
+.font-list-item {
+    background-color: white;
+}
+#font-picker .dropdown-button{
+    background-color: white; 
+    
+}
+#font-picker {
+    width: 220px;
+}
