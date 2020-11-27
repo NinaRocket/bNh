@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-//import ReactDOM from "react-dom";
 import "./style.css";
 import Container from "react-bootstrap/Container";
-// import Col from "react-bootstrap/Col";
-// import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
-// import Image from "react-bootstrap/Image";
 import ImageUpload from "../ImageUpload";
 import Select from "react-select";
 
@@ -42,8 +37,9 @@ function GraphicForm() {
   };
 
   const changeColor = (e) => {
-    console.log(`On change working and is grabbing: ${e.target.value}`);
-    setRegTextColor(e.target.value);
+    console.log(`On change working and is grabbing: ${e}`);
+    console.log(`On change working and is grabbing: ${e.color}`);
+    setRegTextColor(e.color);
   };
 
   return (
@@ -96,16 +92,6 @@ function GraphicForm() {
         </Form.Control>
       </Form.Group>
 
-      {/* <Form.Group className="color" controlId="exampleForm.ControlSelect1">
-        <Form.Label>Color</Form.Label>
-        <Form.Control as="select" value={regText} onChange={changeColor}>
-          <option></option>
-          <option style={{ color: "red" }}>Red</option>
-          <option>Blue</option>
-          <option>Green</option>
-        </Form.Control>
-      </Form.Group> */}
-
       <Form.Group
         className="outline-color"
         controlId="exampleForm.ControlSelect1"
@@ -134,6 +120,18 @@ export default GraphicForm;
           <option>3</option>
           <option>4</option>
           <option>5</option>
+        </Form.Control>
+      </Form.Group> */
+}
+
+{
+  /* <Form.Group className="color" controlId="exampleForm.ControlSelect1">
+        <Form.Label>Color</Form.Label>
+        <Form.Control as="select" value={regText} onChange={changeColor}>
+          <option></option>
+          <option style={{ color: "red" }}>Red</option>
+          <option>Blue</option>
+          <option>Green</option>
         </Form.Control>
       </Form.Group> */
 }
