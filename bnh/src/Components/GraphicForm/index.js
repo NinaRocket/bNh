@@ -4,22 +4,16 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import ImageUpload from "../ImageUpload";
 import Select from "react-select";
+import colors from "../../utils/colors.json";
 
 function GraphicForm() {
   const [regText, setRegText] = useState();
   const [regTextColor, setRegTextColor] = useState();
-  const [selectValue, setSelectValue] = useState();
+  const [color, setColor] = useState();
 
   const handleChange = (event) => {
     setRegText(event.target.value);
   };
-
-  const options = [
-    { value: "Red", label: "Red", color: "#FF0000" },
-    { value: "Blue", label: "Blue", color: "#0000FF" },
-    { value: "Green", label: "Green", color: "#008000" },
-    { value: "Pink", label: "Pink", color: "#FFC0CB" },
-  ];
 
   const styles = {
     option: (provided, state) => ({
@@ -37,8 +31,9 @@ function GraphicForm() {
   };
 
   const changeColor = (e) => {
-    console.log(`On change working and is grabbing: ${e}`);
     console.log(`On change working and is grabbing: ${e.color}`);
+
+    setColor(colors);
     setRegTextColor(e.color);
   };
 
@@ -74,7 +69,7 @@ function GraphicForm() {
         myFontSize="20px"
         value={regTextColor}
         styles={styles}
-        options={options}
+        options={colors}
         onChange={changeColor}
       />
 
