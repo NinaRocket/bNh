@@ -14,7 +14,7 @@ export default class FontPickers extends Component {
     return (
       <div>
         <FontPicker
-          apiKey="AIzaSyBtwXmjnXrsFZvrG7zRkHqiK58vcfpEDv4"
+          apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
           activeFontFamily={this.state.activeFontFamily}
           onChange={(nextFont) =>
             this.setState({

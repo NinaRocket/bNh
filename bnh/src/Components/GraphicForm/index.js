@@ -11,7 +11,8 @@ function GraphicForm() {
   const [regText, setRegText] = useState();
   const [regTextColor, setRegTextColor] = useState();
   const [bgColor, setBgColor] = useState();
-  const [label, setLabel] = useState();
+  const [labelColor, setLabelColor] = useState();
+  const [labelBgColor, setLabelBgColor] = useState();
 
   const handleChange = (event) => {
     setRegText(event.target.value);
@@ -34,17 +35,14 @@ function GraphicForm() {
 
   const changeColor = (e) => {
     console.log(`On change working and is grabbing: ${e.color}`);
-    setLabel(e.label);
+    setLabelColor(e.label);
     //setColor(colors);
     setRegTextColor(e.color);
   };
 
   const changeBackground = (e) => {
-    setLabel(e.label);
+    setLabelBgColor(e.label);
     console.log(e.label);
-    console.log(label);
-    console.log(colors);
-    //setColor(colors);
     setBgColor(e.color);
   };
 
@@ -86,9 +84,12 @@ function GraphicForm() {
         <Select
           className="colorPick"
           myFontSize="20px"
-          value={regTextColor}
+          //value={regTextColor}
           styles={styles}
           options={colors}
+          value={colors.filter(function (color) {
+            return color.value === labelColor;
+          })}
           onChange={changeColor}
         />
         <br></br>
@@ -109,9 +110,13 @@ function GraphicForm() {
         <Select
           className="bgColorPick"
           myFontSize="20px"
-          value={bgColor}
+          //value={label}
+          //label={label}
           styles={styles}
           options={colors}
+          value={colors.filter(function (color) {
+            return color.value === labelBgColor;
+          })}
           onChange={changeBackground}
         />
 
