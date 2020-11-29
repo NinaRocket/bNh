@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -36,7 +36,6 @@ function GraphicForm() {
   const changeColor = (e) => {
     console.log(`On change working and is grabbing: ${e.color}`);
     setLabelColor(e.label);
-    //setColor(colors);
     setRegTextColor(e.color);
   };
 
@@ -70,7 +69,7 @@ function GraphicForm() {
             rows={1}
             value={regText}
             onChange={handleChange}
-            placeholder="NR 1234 NJ"
+            placeholder="NR 1234 NO"
           />
         </Form.Group>
       </React.Fragment>
@@ -93,19 +92,7 @@ function GraphicForm() {
           onChange={changeColor}
         />
         <br></br>
-        {/* <Form.Group
-          className="background-color"
-          controlId="exampleForm.ControlSelect1"
-        >
-          <Form.Label>Background Color</Form.Label>
-          <Form.Control as="select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </Form.Control>
-        </Form.Group> */}
+
         <Form.Label>Background Color</Form.Label>
         <Select
           className="bgColorPick"
@@ -119,7 +106,7 @@ function GraphicForm() {
           })}
           onChange={changeBackground}
         />
-
+        <br></br>
         <Form.Group
           className="outline-color"
           controlId="exampleForm.ControlSelect1"
@@ -139,16 +126,3 @@ function GraphicForm() {
   );
 }
 export default GraphicForm;
-
-{
-  /* <Form.Group className="color" controlId="exampleForm.ControlSelect1">
-        <Form.Label>Font</Form.Label>
-        <Form.Control as="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </Form.Control>
-      </Form.Group> */
-}
