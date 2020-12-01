@@ -22,7 +22,7 @@ function GlobalNavbar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Boats 'n Hoes</Nav.Link>
+          <Nav.Link href="#home">Boats</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -12,7 +12,7 @@ function Landing() {
       <Container>
         <Row>
           <Col xs={12}>
-            <h1>Welcome to Boats 'n Hoes</h1>
+            <h1>Welcome to Boats</h1>
           </Col>
         </Row>
         <Row>
