@@ -13,6 +13,9 @@ function GraphicForm() {
   const [bgColor, setBgColor] = useState();
   const [labelColor, setLabelColor] = useState();
   const [labelBgColor, setLabelBgColor] = useState();
+  //const [strokeColor, setStrokeColor] = useState();
+  const [addStrokeClass, setAddStrokeClass] = useState(false);
+  const [removeStrokeClass, setRemoveStrokeClass] = useState();
 
   const handleChange = (event) => {
     setRegText(event.target.value);
@@ -45,12 +48,19 @@ function GraphicForm() {
     setBgColor(e.color);
   };
 
+  const toggleStrokeToText = (e) => {
+    setAddStrokeClass(!addStrokeClass);
+    console.log("add it");
+  };
+
   return (
     <>
       <React.Fragment>
         <Container>
           <div
-            className="apply-font boatText"
+            className={`apply-font boatText ${
+              addStrokeClass ? "addStroke" : null
+            }`}
             style={{ color: regTextColor, backgroundColor: bgColor }}
           >
             {regText}
@@ -97,8 +107,6 @@ function GraphicForm() {
         <Select
           className="bgColorPick"
           myFontSize="20px"
-          //value={label}
-          //label={label}
           styles={styles}
           options={colors}
           value={colors.filter(function (color) {
@@ -111,13 +119,11 @@ function GraphicForm() {
           className="outline-color"
           controlId="exampleForm.ControlSelect1"
         >
-          <Form.Label>Outline Shadow</Form.Label>
-          <Form.Control as="select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <Form.Label>Outline</Form.Label>
+          <Form.Control as="select" onChange={toggleStrokeToText}>
+            <option></option>
+            <option value={addStrokeClass}>yes daddy</option>
+            <option value={null}>no mama</option>
           </Form.Control>
         </Form.Group>
       </Container>
