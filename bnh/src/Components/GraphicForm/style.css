@@ -6,8 +6,12 @@
     
 }
 
+svg {
+   width: 75%;
+}
+
 .addStroke {
-    -webkit-text-stroke: 1px black;
+    stroke: black;
 }
 .regText {
     width: 30%

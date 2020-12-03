@@ -57,14 +57,19 @@ function GraphicForm() {
     <>
       <React.Fragment>
         <Container>
-          <div
+          <svg
             className={`apply-font boatText ${
               addStrokeClass ? "addStroke" : null
             }`}
-            style={{ color: regTextColor, backgroundColor: bgColor }}
+            style={{ fill: regTextColor, backgroundColor: bgColor }}
           >
-            {regText}
-          </div>
+            <text
+              x="50"
+              y="100"
+            >
+              {regText}
+            </text>
+          </svg>
 
           <br></br>
         </Container>
@@ -120,10 +125,14 @@ function GraphicForm() {
           controlId="exampleForm.ControlSelect1"
         >
           <Form.Label>Outline</Form.Label>
-          <Form.Control as="select" onChange={toggleStrokeToText}>
+          <Form.Control
+            as="select"
+            placeholder="select"
+            onChange={toggleStrokeToText}
+          >
             <option></option>
-            <option value={addStrokeClass}>yes daddy</option>
-            <option value={null}>no mama</option>
+            <option value={addStrokeClass}>On</option>
+            <option value={null}>Off</option>
           </Form.Control>
         </Form.Group>
       </Container>
@@ -132,3 +141,18 @@ function GraphicForm() {
   );
 }
 export default GraphicForm;
+
+{
+  /* <Container>
+          <div
+            className={`apply-font boatText ${
+              addStrokeClass ? "addStroke" : null
+            }`}
+            style={{ color: regTextColor, backgroundColor: bgColor }}
+          >
+            {regText}
+          </div>
+
+          <br></br>
+        </Container> */
+}

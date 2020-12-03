@@ -21,6 +21,7 @@ function ImageUpload() {
   };
   return (
     <div
+      class="responsive"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -40,8 +41,9 @@ function ImageUpload() {
       <div
         style={{
           height: "400px",
-          width: "400px",
+          width: "600px",
           border: "1px dashed black",
+          marginLeft: "50px",
         }}
         onClick={() => imageUploader.current.click()}
       >
