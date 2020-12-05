@@ -11,7 +11,7 @@ svg {
 }
 
 .addStroke {
-    stroke: black;
+    /* stroke: black; */
 }
 .regText {
     width: 30%

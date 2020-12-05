@@ -13,9 +13,10 @@ function GraphicForm() {
   const [bgColor, setBgColor] = useState();
   const [labelColor, setLabelColor] = useState();
   const [labelBgColor, setLabelBgColor] = useState();
+  const [labelStrokeColor, setLabelStrokeColor] = useState();
   //const [strokeColor, setStrokeColor] = useState();
   const [addStrokeClass, setAddStrokeClass] = useState(false);
-  const [removeStrokeClass, setRemoveStrokeClass] = useState();
+  const [strokeColor, setStrokeColor] = useState();
 
   const handleChange = (event) => {
     setRegText(event.target.value);
@@ -50,7 +51,14 @@ function GraphicForm() {
 
   const toggleStrokeToText = (e) => {
     setAddStrokeClass(!addStrokeClass);
-    console.log("add it");
+    if (addStrokeClass) {
+      setStrokeColor(e.color);
+    }
+  };
+
+  const addStrokeColor = (e) => {
+    setLabelStrokeColor(e.label);
+    setStrokeColor(e.color);
   };
 
   return (
@@ -61,12 +69,13 @@ function GraphicForm() {
             className={`apply-font boatText ${
               addStrokeClass ? "addStroke" : null
             }`}
-            style={{ fill: regTextColor, backgroundColor: bgColor }}
+            style={{
+              fill: regTextColor,
+              backgroundColor: bgColor,
+              stroke: strokeColor,
+            }}
           >
-            <text
-              x="50"
-              y="100"
-            >
+            <text x="50" y="100">
               {regText}
             </text>
           </svg>
@@ -135,6 +144,18 @@ function GraphicForm() {
             <option value={null}>Off</option>
           </Form.Control>
         </Form.Group>
+
+        <Form.Label>Outline Color</Form.Label>
+        <Select
+          className="strokeColor"
+          myFontSize="20px"
+          styles={styles}
+          options={colors}
+          value={colors.filter(function (color) {
+            return color.value === labelStrokeColor;
+          })}
+          onChange={addStrokeColor}
+        />
       </Container>
       <ImageUpload />
     </>
