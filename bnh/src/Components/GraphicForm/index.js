@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./style.css";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -14,7 +14,6 @@ function GraphicForm() {
   const [labelColor, setLabelColor] = useState();
   const [labelBgColor, setLabelBgColor] = useState();
   const [labelStrokeColor, setLabelStrokeColor] = useState();
-  //const [strokeColor, setStrokeColor] = useState();
   const [addStrokeClass, setAddStrokeClass] = useState(false);
   const [strokeColor, setStrokeColor] = useState();
 
@@ -48,6 +47,8 @@ function GraphicForm() {
     console.log(e.label);
     setBgColor(e.color);
   };
+
+  //let outlineColor = useRef(strokeColor);
 
   const toggleStrokeToText = (e) => {
     setAddStrokeClass(!addStrokeClass);
@@ -107,7 +108,6 @@ function GraphicForm() {
         <Select
           className="colorPick"
           myFontSize="20px"
-          //value={regTextColor}
           styles={styles}
           options={colors}
           value={colors.filter(function (color) {
@@ -151,6 +151,7 @@ function GraphicForm() {
           myFontSize="20px"
           styles={styles}
           options={colors}
+          // ref={outlineColor}
           value={colors.filter(function (color) {
             return color.value === labelStrokeColor;
           })}
@@ -162,18 +163,3 @@ function GraphicForm() {
   );
 }
 export default GraphicForm;
-
-{
-  /* <Container>
-          <div
-            className={`apply-font boatText ${
-              addStrokeClass ? "addStroke" : null
-            }`}
-            style={{ color: regTextColor, backgroundColor: bgColor }}
-          >
-            {regText}
-          </div>
-
-          <br></br>
-        </Container> */
-}
